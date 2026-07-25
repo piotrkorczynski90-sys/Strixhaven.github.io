@@ -1768,7 +1768,7 @@ magię, próbując osiągnąć poziom mocy, jaki ma ich idol. Klub przypomina ba
 &lt;&lt;button &#39;Powrót&#39;&gt;&gt;
 	&lt;&lt;goto &#39;Start&#39;&gt;&gt;
 &lt;&lt;/button&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="" position="225,75" size="100,100">&lt;&lt;set $bsreaders to 83&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="" position="225,75" size="100,100">&lt;&lt;set $bsreaders to 85&gt;&gt;
 
 &lt;&lt;set $currentYear to 3&gt;&gt;
 &lt;&lt;set $threeYearPlus = $currentYear+3&gt;&gt;
@@ -3229,7 +3229,7 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
             Dorastała w klasztorze, gdzie rozwijała swoje umiejętności interpretacji boskich przesłań i magii inkantacji. Przybyła do Strixhaven, by ugruntować swoje talenty w Silverquill, dążąc do zgłębiania potęgi słów. Jest członkinią Ligii Awanturników, gdzie bada starożytne miejsca podczas wypraw i testuje swoje zaklęcia w terenie, oraz stowarzyszenia językowego, w którym odkrywa tajemnice zapomnianych tekstów i run. Jej równowaga między światłem a mrokiem czyni ją inspiracją wśród studentów Strixhaven.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
-&lt;&lt;link &quot;Grayson Wildemere&quot;&gt;&gt;
+&lt;s&gt;&lt;&lt;link &quot;Grayson Wildemere&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/Grayson.jpg]]
         &lt;&lt;/replace&gt;&gt;
@@ -3242,7 +3242,7 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
 			&lt;span class=&quot;aktas&quot;&gt;Opis&lt;/span&gt;: Greyson pochodzi ze starej, bogatej i wpływowej rodziny. Dla niego studia na Strixhaven są środkiem do celu. Nauka przedsiębiorczości jest dla niego równie ważna jak zajęcia na które uczęszcza, dlatego też zapisał się do Future Enterpreneurs of Strixhaven. Stara się wiedzieć o wszystkich jak najwięcej, zbiera informacje tak długo aż nadarzą się najlepsze okoliczności by tą wiedzę wykorzystać. Posługuje się biegle wytrychami więc często dostaje się do miejsc bez pozwolenia i szuka sekretów.
 			Został również redaktorem w Strixhaven Star gdzie jest odpowiedzialny za kolumnę plotkarską. Jego styl jest zaczepny i często wykorzystuje gazetę by demaskować prześladowców i szydzić z ignorancji. Wielu z jego kolegów jest wpatrzonych w niego, ale tylko nieliczni byli świadkami jak płaci za książki czy inne materiały dla biedniejszych studentów - ten fakt stara się by pozostał sekretem.
         &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;/link&gt;&gt;&lt;/s&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -3326,7 +3326,7 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
             Dorastając w osadzie otoczonej pradawnymi lasami, Rin od najmłodszych lat przejawiała wyjątkową więź z naturą i zdolności uzdrawiające. Po tragicznych wydarzeniach związanych z plagą, jej talenty przyciągnęły uwagę wędrownego druida, który pomógł jej odkryć własne powołanie. W Strixhaven Rin rozwija swoje umiejętności jako druidka, pogłębiając wiedzę o magicznych roślinach i alchemii, co pozwala jej wykorzystać swoje zdolności w służbie równowagi natury. 
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
-&lt;&lt;link &quot;Alvendra Starwood&quot;&gt;&gt;
+&lt;s&gt;&lt;&lt;link &quot;Alvendra Starwood&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/alvendra.jpg]]
         &lt;&lt;/replace&gt;&gt;
@@ -3340,7 +3340,7 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
 			Nigdy tego nie potwierdziła ani nie zaprzeczyła, ale krążą na kampusie plotki, że jest wyznawczynią Bogini Kruków, Morrigan. Klub teologiczny wynsnół tą teorię bazując na stylizacji jaką Alvendra przybiera na codzień - zgadza się z wieloma ikonami Kruczej Pani. 
 			Nie wykazuje specjalnego entuzjazmu na zajęciach, ale też jest raczej typem samotniczki więc nikt jej nie zna na tyle by powiedzieć, że coś jej się podoba lub nie lub gdzie spędza wolny czas gdy nie jest na zajęciach lub spotkaniach klubu ogrodniczego. Gdy pojawia się w zatłoczonym miejscu otacza ją aura &quot;odezwij się to poszczuję mantykorą&quot;, kelnerom jedynie odpowiada najkrócej jak to jest możliwe by dostać to czego pragnie.
         &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;/link&gt;&gt;&lt;/s&gt;
 &lt;img src= &quot;img\misc\cw2.png&quot;&gt;&lt;&lt;link &quot;Toltec&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/toltec.jpg]]
@@ -5586,6 +5586,348 @@ Utrzymanie atramentu wymaga dużej koncentracji, więc studenci spędzają więk
 		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
 		&lt;h2 class=&quot;naglowek&quot;&gt;Lilies and Livers: Introduction to Banelock Rituals&lt;/h2&gt;
             &lt;span class=&quot;aktaw&quot;&gt;Opis: &lt;/span&gt;Ci, którzy przeżyli wstępną klasę Venoca i szukają dodatkowej wiedzy, biorą udział w tym kursie bardziej zaawansowanym z magii zarazy. Podobnie jak w pierwszym kursie, Venoc nie ma moralności ani zasad i otwarcie używa magii śmierci na uczniach, aby przetestować ich determinację, szczególnie podczas egzaminów. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;/center&gt;
+&lt;/div&gt;
+&lt;div class=&quot;portret&quot;&gt;
+&lt;img src=&quot;img/misc/classes.jpg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;opis&quot;&gt;
+&lt;img src=&quot;img/misc/who.png&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;powrot&quot;&gt;
+&lt;&lt;button &#39;Zajęcia na roku czwartym&#39;&gt;&gt;
+	&lt;&lt;goto &#39;Classes_Fourth&#39;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;Powrót&#39;&gt;&gt;
+	&lt;&lt;goto &#39;Start&#39;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Classes_Fourth" tags="" position="900,400" size="100,100">&lt;h1 class=&quot;naglowek&quot;&gt;&lt;center&gt;Dostępne zajęcia na roku czwartym&lt;/center&gt;&lt;/h1&gt;
+&lt;div class=&quot;blokTrzy&quot;&gt;
+&lt;div class=&quot;tabela&quot;&gt;
+&lt;center&gt;&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-gen&quot;&gt;&lt;&lt;button &#39;General Studies&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide5&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide5&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+&lt;&lt;link &quot;Wonder Grow: Advanced Arcane Herbology&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktag&quot;&gt; Prowadzący:&lt;/span&gt; &lt;span class=&quot;aktaw&quot;&gt; Verelda Lang, Arcano-Biologist&lt;/span&gt;
+            &lt;span class=&quot;impo&quot;&gt;Zajęcia obowiązkowe dla całego roku&lt;/span&gt; 
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Wonder Grow: Advanced Arcane Herbology&lt;/h2&gt;
+            &lt;span class=&quot;aktag&quot;&gt;Opis: &lt;/span&gt; Na ostatnich zajęciach z profesor Lang studenci ze wszystkich koledży uczą się o magicznych roślinach i grzybach, z którymi mogą się zetknąć po ukończeniu nauki. Studenci Witherbloom, którzy ukończyli już kursy z profesorami Asaną, Verooją lub Willowdusk, mają delikatną przewagę nad resztą kursantów. Verelda Lang uczy nie tylko o roślinach powszechnie występujących na bagnach i torfowiskach, ale także o tych, które można znaleźć w lasach, górach, głębokich jaskiniach itp., więc przewaga ta nie jest wyczuwalna cały czas.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Imagined Dragons: Preparing the Next Generation of Dragonsguard&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktag&quot;&gt; Prowadzący:&lt;/span&gt; &lt;span class=&quot;aktal&quot;&gt; VLianna Flametongue&lt;/span&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Imagined Dragons: Preparing the Next Generation of Dragonsguard&lt;/h2&gt;
+            &lt;span class=&quot;aktag&quot;&gt;Opis: &lt;/span&gt; Lianna Flametongue osobiście wybiera uczniów na ten wyjątkowy kurs. Choć teoretycznie kurs jest otwarty dla każdego, faworyzuje każdego, kogo otwarcie próbuje zrekrutować lub kto okaże zainteresowanie dołączeniem do Dragonsguard po ukończeniu studiów. 
+Lianna uczy uczniów na tych zajęciach, jak przywoływać okruchy świadomości Założycieli, które przybierają postać widmowych smoków. Kontakt z prawdziwymi Założycielami może być trudnym doświadczeniem, szczególnie dla nowych członków Dragonsguard, więc nauka radzenia sobie z tymi okruchami może być niezbędnym pierwszym krokiem. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Need a Hand?: Using the Arcane for Creative Problem Solving&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktag&quot;&gt; Prowadzący:&lt;/span&gt; &lt;span class=&quot;aktaw&quot;&gt; Tivash, Gloom Summoner&lt;/span&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Need a Hand?: Using the Arcane for Creative Problem Solving&lt;/h2&gt;
+            &lt;span class=&quot;aktag&quot;&gt;Opis: &lt;/span&gt; Profesor Tivash z Witherbloom prowadzi ten kurs rozwiązywania problemów dla studentów, którzy są na tyle odważni, by się od niego uczyć. Profesor magii śmierci zazwyczaj używa magicznej ręki, aby zrekompensować sobie bezużyteczność lewego ramienia. Studenci otrzymują lektury o innych, sprytnych zastosowaniach magii tajemnej, a następnie zdają egzaminy, w których rozwiązują scenariusze nieopisane w lekturze, mające na celu sprawdzenie ich umiejętności krytycznego myślenia. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;There and Back Again: Advanced Teleportation&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktag&quot;&gt; Prowadzący:&lt;/span&gt; &lt;span class=&quot;aktaq&quot;&gt; Jazack Quickfoot&lt;/span&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;There and Back Again: Advanced Teleportation&lt;/h2&gt;
+            &lt;span class=&quot;aktag&quot;&gt;Opis: &lt;/span&gt; Mimo że nie jest to praktyczny sposób na szybką ucieczkę przed niebezpieczeństwem, profesor Jazack opanował do mistrzostwa umiejętność tworzenia kręgów teleportacyjnych. Posiadanie zapasowego kręgu w domu do szybkich ucieczek nigdy nie jest złym pomysłem, przynajmniej według Jazacka. Klasa powtarza prawidłowe rysowanie sigili, a nawet organizuje wycieczki do dużych miast w całym Arcavios, aby studenci mieli przewagę dzięki nauce różnych sekwencji sigili. Podczas egzaminów końcowych studenci mają szansę spróbować stworzyć własny krąg do miejsca wskazanego przez Jazacka, co sprawdza ich zrozumienie magii w praktyce i opanowanie różnych sekwencji sigili, których uczyli się na zajęciach. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Sharing is Caring: Protecting Those Closest to You&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktag&quot;&gt; Prowadzący:&lt;/span&gt; &lt;span class=&quot;aktas&quot;&gt; Luc Brandford&lt;/span&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Sharing is Caring: Protecting Those Closest to You&lt;/h2&gt;
+            &lt;span class=&quot;aktag&quot;&gt;Opis: &lt;/span&gt; Profesor Luc Brandford poświęca większość czasu na nauczanie studentów Silverquill obronnej magii atramentu i kontynuowanie swojej długoletniej kariery w rywalizacji z siostrą. Luc prowadzi również ten zaawansowany kurs ogólny, aby nauczyć studentów, jak chronić siebie i swoich rówieśników przed magicznymi atakami. Studenci spędzają czas na zajęciach i odrabianiu prac domowych, ucząc się i badając różne techniki obronne charakterystyczne dla swoich koledży. Podczas egzaminów Luc grupuje studentów, mianuje jednego z nich „strażnikiem”, a następnie atakuje go różnymi zaklęciami. Oceny zależą od tego, jak dobrze strażnik chroni pozostałych. Rola strażnika przechodzi następnie na kolejnego studenta, aż do momentu, gdy każdy zostanie oceniony. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+ &lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-lore&quot;&gt;&lt;&lt;button &#39;Lorehold&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+&lt;&lt;link &quot;Buying Time: Archaeo-Economics&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktal&quot;&gt; Prowadzący:&lt;/span&gt; Marrick Deepfinder
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Buying Time: Archaeo-Economics&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Opis: &lt;/span&gt; Jakie cechy posiadają najlepsze artefaky? Moc? Historia? Dla profesora Marricka Deepfindera odpowiedź jest tylko jedna: wartość. Na tych zajęciach Marrick uczy studentów, jak wyceniać artefakty nie na podstawie ich wartości historycznej czy magicznej, ale na podstawie tego, ile te cechy są warte dla potencjalnych nabywców. Praca domowa polega na badaniu trendów cenowych i ważnych epok, a egzaminy zazwyczaj polegają na wycenie różnych dóbr z kolekcji Osgira. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Armor Class: Replicating Ancient Smithing and Leatherworking Techniques (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktal&quot;&gt; Prowadzący:&lt;/span&gt; Osgir, The Reconstructor
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Armor Class: Replicating Ancient Smithing and Leatherworking Techniques (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Opis: &lt;/span&gt; Osgir prowadzi te zajęcia, w których omawia i naśladuje starożytne techniki. Studenci zgłębiają metody potężnej magii zaklinania w ramach pracy domowej, a następnie wykorzystują czas laboratoryjny na wykonywanie podstawowych zaklęć zbroi. Osgir analizuje zaklęcia zbroi na zajęciach, przedstawia krytykę i sugestie dotyczące ulepszeń. Studenci również zaklinają i przedstawiają prace do egzaminów. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Shake it up: Using Ruin Magic to Unearth New Digsites&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktal&quot;&gt; Prowadzący:&lt;/span&gt; Marrick Deepfinder
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Shake it up: Using Ruin Magic to Unearth New Digsites&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Opis: &lt;/span&gt; Profesor Marrick nie bez powodu słynie ze swoich zdumiewających i historycznych odkryć archeologicznych. Jest w tej dziedzinie bezkonkurencyjny. Studenci na tym kursie poznają kilka sekretów Marricka, w tym magię manipulowania skałami czy umiejętność tworzenia wejścia tam, gdzie go pierwotnie nie było. Podczas zajęć Marrick demonstruje studentom swoje umiejętności w sali wykładowej, ale egzaminy odbywają się w Pillardrop, głęboko pod kampusem Lorehold, gdzie studenci muszą wykazać się swoimi umiejętnościami w zakresie tych dwóch technik.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Cutting Edge: Popular Weapons and Fighting Techniques Throughout the Ages (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktal&quot;&gt; Prowadzący:&lt;/span&gt; Tervis Sharpwing
+            &lt;span class=&quot;aktal&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Cutting Edge: Popular Weapons and Fighting Techniques Throughout the Ages (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Opis: &lt;/span&gt; Profesor Tervis Sharpwing zapoznaje studentów z rodzajami broni używanej przez starożytne cywilizacje oraz technikami i stylami opracowanymi w celu wykorzystania pełnego potencjału tej broni. W tym czasie uczy on również studentów, jak zaczarować swoją broń duchami wojowników z przeszłości, dzięki czemu broń staje się wyjątkowo śmiercionośna. Studenci ćwiczą to zaczarowywanie podczas zajęć laboratoryjnych, a Tervis oferuje krytykę i informacje zwrotne, które mają pomóc w poprawie wyników na zajęciach.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-pris&quot;&gt;&lt;&lt;button &#39;Prismari&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide1&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide1&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+    &lt;&lt;link &quot;Show of Force: Advanced Methods of Dealing with Hecklers and Other Undersirables&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktap&quot;&gt; Prowadzący:&lt;/span&gt; Rock, Earsplitter
+            &lt;span class=&quot;aktap&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Show of Force: Advanced Methods of Dealing with Hecklers and Other Undersirables&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Opis: &lt;/span&gt;Profesor Rock wie, że w pewnym momencie kariery każdy wykonawca będzie musiał zmierzyć się z kimś z publiczności, kto będzie próbował sabotować przedstawienie. Osoba ta może zachowywać się niespokojnie, próbować rzucić czymś na scenę lub wykrzykiwać obelgi podczas występu. Na tych zajęciach uczy studentów, jak używać magii, aby radzić sobie z takimi sytuacjami. Uczniowie zapoznają się z historycznymi opisami zaczepek i podczas egzaminów występuję przed Rockiem i kolegami z klasy, podczas gdy Rock próbuje ich sabotować lub rozpraszać. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Current Events: Advanced Applications of Electricity in Performance Art&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktap&quot;&gt; Prowadzący:&lt;/span&gt; Zaffai, Thunder Conductor
+            &lt;span class=&quot;aktap&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Current Events: Advanced Applications of Electricity in Performance Art&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Opis: &lt;/span&gt;Niektórzy uwielbiają słyszeć jedno słowo, gdy opisują swoje występy: szokujące. Profesor Zaffai uczy studentów, jak się upewnić, że właśnie te słowo zostanie użyte by ich opisać. Podczas gdy na innych zajęciach Zaffai uczy studentów, jak okiełznać burzę, te zajęcia koncentrują się na ożywianiu burzy szalejącej w ich wnętrzu, co jest o wiele trudniejsze i bardziej niebezpieczne. Zaffai używa specjalistycznego sprzętu w klasie, aby rozproszyć prądy, ale zabłąkane pioruny nadal są możliwe. Praca domowa może obejmować studiowanie burz lub szkicowanie elektryczności jako techniki obrazowania, a podczas egzaminów uczniowie muszą udowodnić swoje umiejętności podczas występu.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Maintaining Mental Flow: Controlling Water as a Means of Clearing a Creative Block&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktap&quot;&gt; Prowadzący:&lt;/span&gt; Ahkwa
+            &lt;span class=&quot;aktap&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Maintaining Mental Flow: Controlling Water as a Means of Clearing a Creative Block&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Opis: &lt;/span&gt;Wszyscy wykonawcy zmagają się z chwilową blokadę twórczą. Na tych zajęciach Awkwa uczy uczniów, jak wykorzystać spontaniczność fal i innych ruchów wody do inspiracji. To, co zaczyna się jako zmarszczka na gadkiej tafli, ma potencjał, by stać się czymś silniejszym i potężniejszym, aż nagle uformuje się potężna fala inspiracji. Niektórzy uczniowie mogą odkryć, że ich kontrola nad wodą faktycznie ożywia tę falę. Praca domowa na tych zajęciach polega głównie na medytacji lub zgłębianiu technik medytacyjnych, ale na egzaminach uczniowie muszą wykazać się doskonałą kontrolą nad dużymi zbiornikami wodnymi, co jest zarówno wymagające, jak i złożone.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;The Show Must Go On: Methods For Avoiding Disasters&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktap&quot;&gt; Prowadzący:&lt;/span&gt; Uvilda Mistcoiler, Dean of Perfection
+            &lt;span class=&quot;aktap&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;The Show Must Go On: Methods For Avoiding Disasters&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Opis: &lt;/span&gt;Dziekan Uvilda zazwyczaj ma wszystko zaplanowane perfekcyjnie. Ale plan B nigdy nie zaszkodzi. Podobnie jak plany od C do F. Posiadanie planu awaryjnego na każdą ewentualną wpadkę gwarantuje, że nic nie zepsuje występu i właśnie tego uczą te zajęcia. Uvilda zadaje studentom różne mało prawdopodobne scenariusze jako pracę domową, a studenci przedstawiają swoje najlepsze pomysły na to, jak sobie z nimi poradzić, gdyby wystąpiły. Podczas egzaminów Uvilda ma okazję osobiście obserwować krytyczne myślenie i rozwiązywanie problemów studentów, stawiając ich w trudnej i mało prawdopodobnej sytuacji w trakcie występu.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-quan&quot;&gt;&lt;&lt;button &#39;Quandrix&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide2&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide2&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+    &lt;&lt;link &quot;Now You See Me: Applied Illusory Arts (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaq&quot;&gt; Prowadzący:&lt;/span&gt;Rixy
+            &lt;span class=&quot;aktaq&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Now You See Me: Applied Illusory Arts (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Opis: &lt;/span&gt;Problem z większością zaklęć iluzji polega na tym, że nie wytrzymują one fizycznej kontroli, co jest fatalne w przypadku dowcipów. Najlepsze dowcipy wykorzystują iluzoryczne materiały, które są idealnymi kopiami prawdziwych materiałów, nawet w dotyku. Na tych zajęciach z profesor Rixy uczniowie uczą się, jak przekształcić swoje iluzje w podstawowe materiały i dobra. Skomplikowana magia matematyczna, która zamienia iluzje w rzeczywiste materiały, wymaga od uczniów sporo nauki. Na egzaminach uczniowie proszeni są o stworzenie fizycznych, lecz iluzorycznych duplikatów różnych materiałów. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Weights and Measures: Advanced Abstracting Theory&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaq&quot;&gt; Prowadzący:&lt;/span&gt;Renald Rothton
+            &lt;span class=&quot;aktaq&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Weights and Measures: Advanced Abstracting Theory&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Opis: &lt;/span&gt;Na najbardziej zaawansowanych zajęciach profesor Renald uczy studentów rozumiejących abstrakcję, jak uwydatnić przestrzeń i siłę magii. Uczniowie rozwijają teorie i wykłady z poprzednich lat, koncentrując się na stosowaniu dodatkowych równań do i tak już skomplikowanej matematyki, aby tworzyć potężniejsze i bardziej rozbudowane zaklęcia. Egzaminy mogą obejmować manipulowanie siłami fizycznymi wokół różnych obiektów, aby uczynić je cięższymi lub lżejszymi niż normalnie, lub używanie magii do oddziaływania na wiele obiektów jednocześnie. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;When the Growing Gets Tough, the Tough Get Growing: Advanced Scale Magic (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaq&quot;&gt; Prowadzący:&lt;/span&gt;Clem Greenthumb
+            &lt;span class=&quot;aktaq&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;When the Growing Gets Tough, the Tough Get Growing: Advanced Scale Magic (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Opis: &lt;/span&gt;Na czwartym roku profesor Clem uczy studentów sposobów wzmacniania natury za pomocą magii skalnej. Studenci rozpoczynają od nauki podstawowych metod wspomagania wzrostu roślin poprzez karmienie nasion i kiełków magią. Stosują tę magię na różnych obiektach testowych podczas zajęć laboratoryjnych. W trakcie kursu studenci z czasem rozmnożą twierdzenia, których używali w swoich zaklęciach, aby znacznie zwiększyć szybkość wzrostu i siłę swoich zaklęć. Podczas egzaminów studenci mają określony czas na wyhodowanie krzewu lub drzewa z małego nasionka w pełnowymiarowy okaz. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Duplicating Roots: Linking Flora Across Space&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaq&quot;&gt; Prowadzący:&lt;/span&gt;Jazack Quickfoot
+            &lt;span class=&quot;aktaq&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Duplicating Roots: Linking Flora Across Space&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Opis: &lt;/span&gt;Teleportacja to bardzo przydatna umiejętność, szczególnie dla Profesora Jazacka, który nieustannie boi się zbliżającej się zagłady i ucieka na pierwszy znak niebezpieczeństwa. Jednak użycie zaklęcia teleportacji niesie ze sobą pewne zagrożenia. Na tych zajęciach Jazack uczy studentów, jak rozpoznawać rośliny nie po gatunku, ale po słabej, tajemnej energii, którą emanują wszystkie żywe istoty. Łącząc unikalną energię jednej rośliny z unikalną energią innej rośliny, którą już widziałeś, możesz stworzyć unikalną ścieżkę między nimi, gdy próbują one zająć to samo miejsce na krótki czas. Jazack spędza pierwszą połowę kursu, pomagając studentom nauczyć się koncentrować zmysły na rozpoznawaniu słabej, magicznej aury emitowanej przez różne drzewa lub duże krzewy. Następnie zabiera studentów do swoich ulubionych roślin, z których może skorzystać w dużych miastach, gdy będzie potrzebował szybkiej ucieczki. Egzamin końcowy polega na tym, że studenci próbują użyć tego roślinnego transportu, aby dostać się do jednego z miast wybranych przez Profesora. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-silv&quot;&gt;&lt;&lt;button &#39;Silverquill&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide3&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide3&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+    &lt;&lt;link &quot;Closing Arguments: Comprehensive Methods of Decisively Defeating Opponents (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktas&quot;&gt; Prowadzący:&lt;/span&gt; Liv Brandford
+            &lt;span class=&quot;aktas&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Closing Arguments: Comprehensive Methods of Decisively Defeating Opponents (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktas&quot;&gt;Opis: &lt;/span&gt;Powstrzymywanie wrogów poprzez uciszanie ich to już drugi rok. Na tym kursie dla czwartego roku Liv Brandford uczy studentów zaawansowanych technik całkowitego zdominowania przeciwników. Studenci poznają zaawansowane techniki oczarowywania, zanim zaczną ćwiczyć dominację nad kolegami z klasy na zajęciach.
+Egzaminy oceniają uczniów pod kątem ich umiejętności stosowania technik dominacji, kontroli nad celem oraz kreatywności w tym, co pod jego wpływem zrobią. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Blotting Out Weakness: Letting the Void Fill You&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktas&quot;&gt; Prowadzący:&lt;/span&gt; Brenneth Blackstone
+            &lt;span class=&quot;aktas&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Blotting Out Weakness: Letting the Void Fill You&lt;/h2&gt;
+            &lt;span class=&quot;aktas&quot;&gt;Opis: &lt;/span&gt;Poddanie się mocy pustki może odstraszyć mniej utalentowanych czarodziejów. Ci, którzy poszukują prawdziwej mocy, otwarcie się na to godzą. Brenneth Blackstone uczy uczniów, że czasami trzeba ponieść ofiary w imię zyskanie większej mocy. Oddając się mrocznym mocom inkomancji, uczniowie uczą się, jak zadawać celom rozmaite cierpienia. Uczniowie uczą się najpierw poddawać się przytłaczającej mocy, a następnie jak wydostać się z otchłani. Dopiero potem badane są praktyczne zastosowania. Egzaminy sprawdzają, jak uczniowie potrafią wykorzystać różne efekty zaklęcia. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+   &lt;&lt;link &quot;Light Reading: Advanced Luminancy&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktas&quot;&gt; Prowadzący:&lt;/span&gt; Helioz Sunmane
+            &lt;span class=&quot;aktas&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Light Reading: Advanced Luminancy&lt;/h2&gt;
+            &lt;span class=&quot;aktas&quot;&gt;Opis: &lt;/span&gt;Wielu studentów, zwłaszcza tych, którzy zgłębiają filozofie Cienia Silverquill, otwarcie wyśmiewa magię światła lub uważa ją za odpowiednią jedynie dla słabych i naiwnych. W tym kursie Helioz demonstruje wyższość magii światła. Światło nie tylko potrafi przeniknąć ciemność, ale także spalić niesprawiedliwych i oślepić zepsutych – dwie potężne umiejętności, z których Luminancerzy czasami muszą korzystać. Studenci najpierw uczą się podstaw przywoływania tak potężnego światła, a następnie uczą się, jak rozpoznawać, kiedy sytuacja wymaga takiej magii. Egzaminy sprawdzają siłę czystości studentów, nakazując im przywołanie tą migoczącą magię światła i testując zarówno jasność, jak i zdolność do zadawania obrażeń. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;In a Manner of Speaking: Intention and Subtext&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktas&quot;&gt; Prowadzący:&lt;/span&gt; Smart Mouth
+            &lt;span class=&quot;aktas&quot;&gt;Uczniowie:&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;In a Manner of Speaking: Intention and Subtext&lt;/h2&gt;
+            &lt;span class=&quot;aktas&quot;&gt;Opis: &lt;/span&gt;Na zaklęcia mogą wpływać nie tylko wypowiadane słowa, ale także sposób ich wypowiadania. Nikt nie wie tego lepiej niż Profesor Smart Mouth, którego zaklęcia są tak potężne, jak te, które słyszał. Dzięki swojej doskonałej mimikrze, Smart Mouth uczy studentów, jak intencja może osłabiać lub wzmacniać zaklęcia, nawet jeśli taka intencja jest podświadoma. Praca domowa może polegać na pisaniu przez studentów esejów o strumieniu świadomości, w celu zbadania własnych podświadomych myśli, a następnie na egzaminach, podczas których mają ćwiczyć znane już zaklęcia z różnymi intencjami. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;span class=&quot;btn-with&quot;&gt;&lt;&lt;button &#39;Witherbloom&#39;&gt;&gt;
+	&lt;&lt;toggleclass &quot;#hide4&quot; &quot;hide&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id=&quot;hide4&quot; class=&quot;hide&quot;&gt;
+&lt;td&gt;
+    &lt;&lt;link &quot;Seed Money: Growing Rare Plants for Fun and Profit&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaw&quot;&gt; Prowadzący:&lt;/span&gt; Verooja
+            &lt;span class=&quot;aktaw&quot;&gt;Uczniowie:&lt;/span&gt;
+            
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Seed Money: Growing Rare Plants for Fun and Profit&lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Opis: &lt;/span&gt;Ogród profesora Verooja to nie tylko rośliny ochronne czy pospolite. Uprawia on również wiele roślin, których liście, płatki lub inne tego typu części sprzedają się za całkiem niezłe pieniądze odpowiednim osobom. Takie rośliny zazwyczaj wiążą się z zyskiem, dlatego im trudniej je uprawiać, tym więcej są warte. W pierwszej połowie kursu Verooja uczy studentów prawidłowej pielęgnacji, warunków glebowych, technik podlewania itp. dla niektórych z tych roślin. Ostatecznie jednak istnieją pewne warunki, które muszą zostać spełnione, a których przeciętny ogrodnik nie do końca rozumie. Verooja uczy studentów, jak nawiązać kontakt z naturą, aby poznać otaczający ich teren i sprawdzić, czy spełnienie takich warunków jest w ogóle możliwe. Na początku semestru studenci otrzymują własne rzadkie nasiona, a egzaminy polegają na ocenie wzrostu ich rośliny przez Verooja. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Tooth and Claw: Advanced Creature Summoning (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaw&quot;&gt; Prowadzący:&lt;/span&gt; Kojil, the Tamer
+            &lt;span class=&quot;aktaw&quot;&gt;Uczniowie:&lt;/span&gt;
+            
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Tooth and Claw: Advanced Creature Summoning (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Opis: &lt;/span&gt;Na tym kursie dla czwartego roku Kojil uczy studentów, jak przywoływać potężne fey z innych wymiarów, które następnie można kształtować w postacie różnych bestii. Praca z tak niestabilnymi duchami może być niebezpieczna, ponieważ utrata koncentracji na zaklęciu nie powoduje ich odwołania, a jedynie utratę kontroli nad nimi. Kojil uczy studentów, jak ważne jest wybieranie duchów i stworzeń, które są potężne, ale nie przytłaczająco. 
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Plague Doctoring: Concocting Diseases and Maladies&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaw&quot;&gt; Prowadzący:&lt;/span&gt; Venoc Plaguescale
+            &lt;span class=&quot;aktaw&quot;&gt;Uczniowie:&lt;/span&gt;
+            
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Plague Doctoring: Concocting Diseases and Maladies&lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Opis: &lt;/span&gt;Chociaż Venoc stanowczo nie przepada za prowadzeniem większości swoich kursów, ten sprawia mu pewną przyjemność. Na tym etapie studenci, którzy uczęszczają na jego zajęcia, ograniczają się do tych, którzy naprawdę podzielają jego zainteresowania, a on z wielką dbałością uczy ich tworzenia i rozprzestrzeniania potężnych chorób i plag. Studenci najpierw uczą się metod ochrony przed różnymi chorobami, ponieważ banelock, który nie przede wszystkim nie dba o chronienie samego siebie jest głupim banelockiem. Następnie uczą się, jak celować w określone części anatomii stworzenia, aby zarazić je różnorodnymi chorobami. Egzaminy na tym kursie polegają na próbach zarażania siebie nawzajem chorobami pod nadzorem Venoca.
+            &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;What Is Dead Can Never Die: Advanced Applications of Necromancy (LAB)&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            &lt;span class=&quot;aktaw&quot;&gt; Prowadzący:&lt;/span&gt; Serafina Onyx, Necro-Biologist
+            &lt;span class=&quot;aktaw&quot;&gt;Uczniowie:&lt;/span&gt;
+            
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;What Is Dead Can Never Die: Advanced Applications of Necromancy (LAB)&lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Opis: &lt;/span&gt;Na tym zaawansowanym kursie prowadzonym przez Profesor Onyx studenci uczą się, jak ponownie wykorzystywać pewne zasoby, a konkretniej ciała swoich wrogów. Uczą się nasycać zwłoki magią nekromancji, aby tworzyć silniejsze nieumarłe sługi. Profesor Onyx zadaje studentom lektury do pracy domowej, a laboratoria zazwyczaj obejmują ćwiczenia z kopania grobów lub ćwiczenia praktyczne przygotowujące ciała do reanimacji. Egzaminy polegają na próbie wskrzeszenia tych ciał, a ich wysiłki są oceniane na podstawie kontroli nad nieumarłymi i ich siły.
             &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
