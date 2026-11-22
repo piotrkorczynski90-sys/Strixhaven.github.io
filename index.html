@@ -519,8 +519,10 @@ div.blok, div.start {
   flex: 0 0 50%;
   max-width: 50%;
   display: flex;
+  flex-direction: column; /* Ustawia elementy w pionie (jeden pod drugim) */
   justify-content: center;
   align-items: center;
+  gap: 15px; /* Odstęp między grafikami (zamiast <br>) */
   text-align: center;
   box-sizing: border-box;
 }
@@ -530,6 +532,7 @@ div.blok, div.start {
 .obraz img{
   max-width: 100%;
   height: auto;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
@@ -714,9 +717,72 @@ div.powrot button:active {
   text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
 
-.menu td.icon {
-  position: relative;
-  padding-left: 42px; /* miejsce na ikonę */
+.team-page .menu td.icon {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff; /* Jaśniejszy tekst niż u reszty składu dla lepszego kontrastu */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+  transition: all 0.25s ease;
+}
+
+/* Poświata samej ikonki kapitana */
+.team-page .menu td.icon::before {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* Lekkie wzmocnienie poświaty po najechaniu myszką na wiersz kapitana */
+.team-page .menu tr:hover td.icon::before {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ============================================================
+   KOLOROWY GLOW KAPITANA DLA POSZCZEGÓLNYCH KOLEGIÓW
+   ============================================================ */
+
+/* Witherbloom – żywa zieleń */
+.witherbloom .menu td.icon {
+  color: #e2ffe0;
+  text-shadow: 0 0 8px rgba(123, 220, 111, 0.75), 0 0 16px rgba(42, 161, 71, 0.55);
+}
+.witherbloom .menu td.icon::before {
+  filter: drop-shadow(0 0 6px rgba(123, 220, 111, 0.85));
+}
+
+/* Lorehold – ciepłe złoto / bursztyn */
+.lorehold .menu td.icon {
+  color: #fff6e5;
+  text-shadow: 0 0 8px rgba(255, 190, 110, 0.75), 0 0 16px rgba(227, 163, 106, 0.55);
+}
+.lorehold .menu td.icon::before {
+  filter: drop-shadow(0 0 6px rgba(255, 180, 100, 0.85));
+}
+
+/* Prismari – ognista czerwień z nutą błękitu */
+.prismari .menu td.icon {
+  color: #ffe8e8;
+  text-shadow: 0 0 8px rgba(255, 122, 122, 0.8), 0 0 16px rgba(107, 186, 255, 0.6);
+}
+.prismari .menu td.icon::before {
+  filter: drop-shadow(0 0 6px rgba(107, 186, 255, 0.85));
+}
+
+/* Quandrix – jasny turkus */
+.quandrix .menu td.icon {
+  color: #e6fffb;
+  text-shadow: 0 0 8px rgba(79, 209, 197, 0.8), 0 0 16px rgba(127, 232, 216, 0.55);
+}
+.quandrix .menu td.icon::before {
+  filter: drop-shadow(0 0 6px rgba(79, 209, 197, 0.85));
+}
+
+/* Silverquill – srebrzysta biel */
+.silverquill .menu td.icon {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.75), 0 0 16px rgba(199, 199, 209, 0.6);
+}
+.silverquill .menu td.icon::before {
+  filter: drop-shadow(0 0 6px rgba(235, 235, 255, 0.85));
 }
 
 .menu td.icon::before {
@@ -747,6 +813,12 @@ div.powrot button:active {
   font-family: 'Quintessential', cursive;
   box-sizing: border-box;
 }
+
+.witherbloom .rok-medalion { border-color: #7bdc6f; background: rgba(123, 220, 111, 0.1); }
+.lorehold .rok-medalion    { border-color: #ff9b6b; background: rgba(255, 155, 107, 0.1); }
+.prismari .rok-medalion    { border-color: #6bbaff; background: rgba(107, 186, 255, 0.1); }
+.quandrix .rok-medalion    { border-color: #4fd1c5; background: rgba(79, 209, 197, 0.1); }
+.silverquill .rok-medalion { border-color: #bfbfbf; background: rgba(255, 255, 255, 0.08); }
 
 .witherbloom .naglowek{
   color: #9be58c;
@@ -1302,7 +1374,127 @@ h2.general {
 /* Zły (odcienie czerwieni / purpury) */
 .align-badge.le { background-color: #742a2a; } /* Praworządny Zły */
 .align-badge.ne { background-color: #9b2c2c; } /* Neutralny Zły */
-.align-badge.ce { background-color: #6b21a8; } /* Chaotyczny Zły */</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document.head).append("<link rel='icon' href='img/misc/favicon.png'>");
+.align-badge.ce { background-color: #6b21a8; } /* Chaotyczny Zły */
+
+/* ============================================================
+   STYLIZACJA ZDJĘCIA GRUPOWEGO DRUŻYNY
+   ============================================================ */
+.team-page .obraz img:first-of-type {
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  
+  /* Wielowarstwowy cień: wewnętrzny blask + twarde odcięcie + miękka poświata */
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(255, 255, 255, 0.12);
+    
+  /* Lekkie podbicie kontrastu i nasycenia barw */
+  filter: contrast(1.04) saturate(1.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+/* Efekt po najechaniu myszką – lekkie powiększenie i rozświetlenie */
+.team-page .obraz img:first-of-type:hover {
+  transform: scale(1.025);
+  filter: contrast(1.06) saturate(1.12) brightness(1.05);
+}
+
+/* ============================================================
+   KOLORYSTYKA RAMKI I POŚWIATY DLA POSZCZEGÓLNYCH KOLEGIÓW
+   ============================================================ */
+
+/* Witherbloom – szmaragdowo-zielona poświata */
+.witherbloom .obraz img:first-of-type {
+  border-color: rgba(123, 220, 111, 0.55);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(42, 161, 71, 0.35);
+}
+.witherbloom .obraz img:first-of-type:hover {
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(123, 220, 111, 0.6);
+}
+
+/* Lorehold – ciepłe złoto i bursztyn */
+.lorehold .obraz img:first-of-type {
+  border-color: rgba(255, 180, 100, 0.55);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(174, 44, 44, 0.4);
+}
+.lorehold .obraz img:first-of-type:hover {
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(255, 180, 100, 0.6);
+}
+
+/* Prismari – żywiołowy błękit z nutą czerwieni */
+.prismari .obraz img:first-of-type {
+  border-color: rgba(107, 186, 255, 0.55);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(107, 186, 255, 0.35);
+}
+.prismari .obraz img:first-of-type:hover {
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(255, 122, 122, 0.55);
+}
+
+/* Quandrix – chłodny turkus */
+.quandrix .obraz img:first-of-type {
+  border-color: rgba(79, 209, 197, 0.55);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(79, 209, 197, 0.35);
+}
+.quandrix .obraz img:first-of-type:hover {
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(79, 209, 197, 0.6);
+}
+
+/* Silverquill – srebrzysta poświata */
+.silverquill .obraz img:first-of-type {
+  border-color: rgba(210, 210, 225, 0.55);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(200, 200, 220, 0.3);
+}
+.silverquill .obraz img:first-of-type:hover {
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(235, 235, 255, 0.55);
+}
+
+/* Delikatne uniesienie i poświata pod przezroczystym logo */
+.team-page .obraz img:last-of-type {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.witherbloom .obraz img:last-of-type:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(123, 220, 111, 0.6));
+}
+.lorehold .obraz img:last-of-type:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(255, 155, 107, 0.6));
+}
+.prismari .obraz img:last-of-type:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(107, 186, 255, 0.6));
+}
+.quandrix .obraz img:last-of-type:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(79, 209, 197, 0.6));
+}
+.silverquill .obraz img:last-of-type:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(220, 220, 235, 0.6));
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(document.head).append("<link rel='icon' href='img/misc/favicon.png'>");
 $(document).on(":passageend", function () {
 
   const rows = $(".scoreboard tbody tr");
@@ -1798,7 +1990,7 @@ magię, próbując osiągnąć poziom mocy, jaki ma ich idol. Klub przypomina ba
 &lt;&lt;/button&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="" position="225,75" size="100,100">&lt;&lt;set $bsreaders to 84&gt;&gt;
 
-&lt;&lt;set $currentYear to 3&gt;&gt;
+&lt;&lt;set $currentYear to 4&gt;&gt;
 &lt;&lt;set $threeYearPlus = $currentYear+3&gt;&gt;
 &lt;&lt;set $twoYearPlus = $currentYear+2&gt;&gt;
 &lt;&lt;set $oneYearPlus = $currentYear+1&gt;&gt;
@@ -2857,7 +3049,7 @@ Studenci i pracownicy, którzy przechadzają się obok ogrodu, często słyszą,
 			Greta stara się regularnie pisać do jej młodszego brata, Groga, za którym bardzo tęskni.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
-&lt;img src= &quot;img\misc\fci.png&quot;&gt;&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Hogumak&quot;&gt;&gt;
+&lt;img src= &quot;img\misc\fci.png&quot;&gt;&lt;img src= &quot;img\misc\bl2.png&quot;&gt;&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Hogumak&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/Hogumak.jpg]]
         &lt;&lt;/replace&gt;&gt;
@@ -3496,6 +3688,20 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
 			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: Brunna Ashmantle to krępa, atletyczna krasnoludka z płomienisto-rudymi warkoczami, piegowatą twarzą i szramą na policzku. Pochodzi z krasnoludzkich twierdz, lecz zamiast kuźni wybrała badanie starożytności w Kolegium Lorehold na uczelni Strixhaven. Nosi funkcjonalne szkarłatno-kremowe szaty połączone ze skórzanym pancerzem oraz kompletnym ekwipunkiem archeologa: tubami na mapy, zwojami, pojemnikami na odczynniki i czekanem bojowym. Zaklęcia rzuca z geomantycznego grimoire&#39;a, manifestując je w postaci złocistych glifów, kręgów magii oraz lewitujących odłamków ruin. Jej surowa, kinetyczna magia pachnie pyłem wiekowych grobowców. Jako połączenie wojowniczki i badaczki uważa, że historię trzeba poznać własnoręcznie w terenie, a nie w dusznych archiwach. Aktywnie działa w Adventurers League oraz Strixhaven Iron-Lifters Society, gdzie regularnie udowadnia swoją niezwykłą krzepę. Jej ulubionym wykładowcą jest Dziekan Plargg, z którym dzieli przekonanie, że nie ma nagrody bez ryzyka. Odważna, uparta i bezpośrednia, słynie z samotnego przetrwania w zawalonych katakumbach i wydobycia stamtąd cennych reliktów. Do wszelkich niebezpieczeństw podchodzi z entuzjazmem, często powtarzając: „To nie była pułapka. To był niespodziewany test charakteru”. Pasjonują ją geologia, epigrafika, rzadkie zwoje oraz rywalizacja siłowa z każdym, kto uważa się za sprawniejszego od niej.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Vesper Bloodscythe&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Vesper.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Vesper Bloodscythe&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: Shadar-kai
+			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge ce&quot;&gt; Chaotyczny Zły &lt;/span&gt;
+			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Student-Mages of Faith
+			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: Pomocnik w ambulatorium
+			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: Vesper Bloodscythe to wysoki, żylasty Shadar-kai z kolegium Lorehold o trupio bladej skórze, fioletowych oczach i srebrzystobiałych włosach. Zamiast tradycyjnych szat nosi rozpiętą czerwoną kamizelkę z wyszarpanymi rękawami, odsłaniającą sieć świeżych blizn na ramionach i klatce piersiowej, a na szyi ciężki srebrny amulet z symbolem krwawego bóstwa, Jashina. Po kampusie porusza się z wielką kosą obrzędową. Jego magia opiera się na bólu – rzucając zaklęcia, celowo rani własne ciało, a krzepnąca w powietrzu krew kreśli karmazynowe runy więżące duchy. Urodzony w Shadowfell, przybył do Strixhaven, by w starożytnych ruinach odnaleźć rytuały gwarantujące nieśmiertelność. 
+            Jest głośnym, wulgarnym fanatykiem i masochistą, traktującym walkę jak nabożeństwo. Gardzi rówieśnikami, często rzucając w ich stronę: „Historia nie jest zapisana atramentem, ty nudny idioto! Prawdziwe dzieje pisze się krzykiem i krwią na ołtarzu – a ja właśnie zamierzam dopisać kolejny rozdział!”. Jako członek klubu Student-Mages of Faith agresywnie nawraca studentów, a pracując w ambulatorium, zapewnia sobie dostęp do krwi oraz narzędzi chirurgicznych. Szanuje wyłącznie profesora Tervisa Sharpwinga za brutalne sparingi, a jedyną bliską relację utrzymuje z Pyrionem Ashvexem z Prismari, z którym wspólnie wysadza grobowce.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
 &lt;img src= &quot;img\misc\meb.png&quot;&gt;&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Morrigan Brennan&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/Morrigan.jpg]]
@@ -3522,6 +3728,20 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
 			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: Zazwyczaj można go spotkać w towarzystwie Morrigan Brennan, oboje lubią mroczną tematykę i dołączyli do słynnej grupy &quot;Ciemniaków&quot;, którzy roztaczają wokół siebie aurę &#39;bólu wrzechświata&#39;. Veldor przybył do Lorehold by zgłębiać Symbologię oraz wszelkie inne możliwe nauki, które pozwalają poznać znaczenie symboli, ponieważ uczeń ten ma tendencję do doszukiwania się głębszego znaczenia nawet tam gdzie go nie ma. Zwykle tuła się po korytarzach ze swoimi książkami. Tak jak reszta Ciemniaków (&quot;Mroczna Elita&quot; jak nazywają siebie) uważa resztę uczniów za przyziemnych prostaków, których nie interesuje nic poza doczesnymi sprawami. On stara się zgłębiać tajemnice wszechświata, zrozumieć niezrozumiane, i sam być chodzącą enigmą. Należy do klubu językowego i choć sam nie nadaje się do sportu, to wspiera Morrigan w swoich poczynaniach.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
+&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Cassian Dale&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Cassian.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Cassian Dale&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: Aasimar
+			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge cg&quot;&gt; Chaotyczny Dobry&lt;/span&gt; 
+			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Dead Languages Society, Intramural Silkball Club
+			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: „Historia nie należy do zakurzonych tomów, lecz do tych, którzy w niej żyli” – to życiowa maksyma Cassiana Dale’a, charyzmatycznego aasimara o ciemnych włosach, krótkim zaroście i złotym, celestialnym spojrzeniu. Ubrany w rozpięty, przystosowany do wykopalisk płaszcz Lorehold, obwieszony starożytnymi relikwiami, kompasem oraz oprawnym w skórę grimoire’em, z wdziękiem łączy charyzmę z buntowniczą naturą. Jako dziecko odkrył dar słyszenia duchów, a uratowanie starożytnego grobowca przed zniszczeniem utwierdziło go w przekonaniu, że sprawiedliwość oraz żywa pamięć o ludziach stoją ponad wszelkimi akademickimi regułami.
+            Na Strixhaven Cassian dał się poznać jako niesubordynowany, lecz niezwykle empatyczny badacz, który nie waha się łamać zakazów, by odzyskiwać utajnione pamiętniki i listy zwykłych ludzi. Podczas rzucania zaklęć recytuje poematy w wymarłych językach, manifestując wokół siebie płomienne, świetliste skrzydła oraz widmowe echa dawnych bohaterów. Swoje pasje do historii oraz sportowej rywalizacji rozwija w Dead Languages Society oraz Intramural Silkball Club, gdzie występuje w drużynie Lorehold na pozycji napastnika. Największym autorytetem jest dla niego profesorka Lianna Flametongue, która w jego chaotycznym idealizmie dostrzega własną młodzieńczą buntowniczość i roztacza nad nim opiekuńczą, choć niezwykle surową dyscyplinę.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Lyara Dawnspire&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
             [img[img/char/Lyara.jpg]]
@@ -3536,20 +3756,6 @@ Urodzony jako syn Wilfreda, kapłana boga Talosa. Ojciec Wulfrica również był
 Lyara jest empatyczną i zdeterminowaną osobą, która poszukuje równowagi między sprawiedliwością a trudnymi decyzjami. Wyróżnia się naturalnym przywództwem i strategicznym myśleniem, co łączy z pasją do eksploracji ruin i odkrywania tajemnic przeszłości. Jest wierną przyjaciółką, gotową wspierać innych w potrzebie.
 Pochodząca z górzystej krainy, Lyara dorastała, czerpiąc inspirację z prac ojca historyka i matki wojowniczki. Te rodzinne tradycje prowadzą ją w Strixhaven, gdzie rozwija wiedzę i umiejętności bojowe.
 Jako członkini Dragonsguard Historical Society organizuje ekspedycje badawcze i uczestniczy w debatach o starożytnych cywilizacjach. W Dragonsguard Reserve Officer Training Corp doskonali sztuki walki i strategiczne myślenie, wzmacniając swoją determinację, by służyć zarówno wiedzą, jak i mieczem.
-        &lt;&lt;/replace&gt;&gt;
-    &lt;&lt;/link&gt;&gt;
-&lt;&lt;link &quot;Cassian Vale&quot;&gt;&gt;
-        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
-            [img[img/char/Cassian.jpg]]
-        &lt;&lt;/replace&gt;&gt;
-		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
-		&lt;h2 class=&quot;naglowek&quot;&gt;Cassian Vale&lt;/h2&gt;
-            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: Aasimar
-			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge cg&quot;&gt; Chaotyczny Dobry&lt;/span&gt; 
-			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Dead Languages Society, Dragonsguard Reserve Officer Training Corp
-			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: brak
-			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: „Historia nie należy do zakurzonych tomów, lecz do tych, którzy w niej żyli” – to życiowa maksyma Cassiana Vale’a, charyzmatycznego aasimara o ciemnych włosach, krótkim zaroście i złotym, celestialnym spojrzeniu. Ubrany w rozpięty, przystosowany do wykopalisk płaszcz Lorehold, obwieszony starożytnymi relikwiami, kompasem oraz oprawnym w skórę grimoire’em, z wdziękiem łączy charyzmę z buntowniczą naturą. Jako dziecko odkrył dar słyszenia duchów, a uratowanie starożytnego grobowca przed zniszczeniem utwierdziło go w przekonaniu, że sprawiedliwość oraz żywa pamięć o ludziach stoją ponad wszelkimi akademickimi regułami.
-Na Strixhaven Cassian dał się poznać jako niesubordynowany, lecz niezwykle empatyczny badacz, który nie waha się łamać zakazów, by odzyskiwać utajnione pamiętniki i listy zwykłych ludzi. Podczas rzucania zaklęć recytuje poematy w wymarłych językach, manifestując wokół siebie płomienne, świetliste skrzydła oraz widmowe echa dawnych bohaterów. Swoje pasje do historii i taktyki obronnej rozwija w Dead Languages Society  oraz Dragonsguard Reserve Officer Training Corp. Największym autorytetem jest dla niego profesorka Lianna Flametongue, która w jego chaotycznym idealizmie dostrzega własną młodzieńczą buntowniczość i roztacza nad nim opiekuńczą, choć niezwykle surową dyscyplinę.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -3572,7 +3778,8 @@ Na Strixhaven Cassian dał się poznać jako niesubordynowany, lecz niezwykle em
 			&lt;span class=&quot;aktap&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge ce&quot;&gt; Chaotyczny Zły &lt;/span&gt;
 			&lt;span class=&quot;aktap&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Competitive Spell-Flingers Association, The Black Hand
 			&lt;span class=&quot;aktap&quot;&gt;Praca&lt;/span&gt;: brak
-			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: Pyrios to wysoki, smukły Fire Genasi o miedzianej skórze, oczach niczym gorejący węgiel i włosach z żywego płomienia. Nosi szaty Prismari ubrudzone jaskrawą farbą oraz pyłem glinianym, a na jego twarzy stale gości szaleńczy uśmiech. Wychowany na pograniczu Planu Ognia, odrzucił klasyczną rzeźbę na rzecz destrukcji, uznając wybuch za jedyną czystą formę sztuki. Jest teatralnym, bezwzględnym ekscentrykiem z kompleksem wyższości, traktującym otoczenie i innych studentów jako rekwizyty w autorskich performance&#39;ach. Swoją magię rzuca poprzez ulewane z gliny, wybuchowe figurki lub uderzenia pędzla, detonujące w feerii barw i iskier. Dołączył do Competitive Spell-Flingers Association, by wysadzać czary rywali w ich twarze, oraz do The Black Hand, skąd pozyskuje nielegalne reagenty pirotechniczne. Z racji aktywności w klubach nie pracuje na kampusie, uważając pracę fizyczną za marnowanie natchnienia. Czci dziekan Nassari za jej słynne wywołanie trzęsienia ziemi i podziela jej wizję, że cały świat jest płótnem. Wolny czas poświęca na mieszanie pigmentów z prochem magmowym, pirotechniczne rzeźbiarstwo oraz „korektę” dzieł zwolenników perfekcji poprzez ich spektakularne niszczenie. Obserwuje Strixhaven jako jedno wielkie płótno, czekające na swój ostateczny finisz.
+			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: Pyrion to wysoki, smukły Fire Genasi o miedzianej skórze, oczach niczym gorejący węgiel i włosach z żywego płomienia. Nosi szaty Prismari ubrudzone jaskrawą farbą oraz pyłem glinianym, a na jego twarzy stale gości szaleńczy uśmiech. Wychowany na pograniczu Planu Ognia, odrzucił klasyczną rzeźbę na rzecz destrukcji, uznając wybuch za jedyną czystą formę sztuki. Jest teatralnym, bezwzględnym ekscentrykiem z kompleksem wyższości, traktującym otoczenie i innych studentów jako rekwizyty w autorskich performance&#39;ach – jedynym wyjątkiem jest jego kumpel z roku, Vesper Bloodscythe z Lorehold, w którym widzi doskonałego, równie szalonego partnera do testowania siły rażenia ładunków w starożytnych grobowcach. Swoją magię rzuca poprzez ulewane z gliny, wybuchowe figurki lub uderzenia pędzla, detonujące w feerii barw i iskier. 
+            Dołączył do Competitive Spell-Flingers Association, by wysadzać czary rywali w ich twarze, oraz do The Black Hand, skąd pozyskuje nielegalne reagenty pirotechniczne. Z racji aktywności w klubach nie pracuje na kampusie, uważając pracę fizyczną za marnowanie natchnienia. Czci dziekan Nassari za jej słynne wywołanie trzęsienia ziemi i podziela jej wizję, że cały świat jest płótnem. Wolny czas poświęca na mieszanie pigmentów z prochem magmowym, pirotechniczne rzeźbiarstwo oraz „korektę” dzieł zwolenników perfekcji poprzez ich spektakularne niszczenie. Obserwuje Strixhaven jako jedno wielkie płótno, czekające na swój ostateczny finisz.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Githany Dragontrap&quot;&gt;&gt;
@@ -3719,6 +3926,20 @@ Jako studentka Kolegium Prismari, wolne chwile spędza na treningach pojedynkowy
 			&lt;span class=&quot;aktaq&quot;&gt;Praca&lt;/span&gt;: Asystentka i korepetytorka w Biblioplexie
 			&lt;span class=&quot;aktaq&quot;&gt;Opis&lt;/span&gt;: Talia Vance, wysportowana ludzka studentka Quandrix o błękitnych oczach i blond włosach spiętych w praktyczny kucyk, nosi granatowo-szmaragdową szatę z kapturem oraz oficjalnym emblematem kolegium. Rzuca zaklęcia, kreśląc w powietrzu trójwymiarowe hologramy równań i fraktali, które służą jej jako rusztowanie do naginania praw fizyki oraz wznoszenia tymczasowych konstrukcji. Dorastała w przeludnionej, chaotycznej metropolii, gdzie wadliwa infrastruktura zagrażała życiu mieszkańców, dlatego przybyła do Strixhaven, by opanować geometrię i przebudować świat na bezpieczniejszy. 
             „Chaos to jedynie błąd w obliczeniach; w dobrze zaprojektowanej przestrzeni każdy znajdzie bezpieczne miejsce” – mawia ta optymistyczna idealistka i urodzona liderka. Głęboko wierzy, że przejrzyste reguły oraz porządek chronią najsłabszych, choć bywa irytująco drobiazgowa w kryzysach. Poza arkanofizyką i urbanistyką pasjonuje się kaligrafią geometryczną, muzyką klasyczną i porannymi biegami po wyspach kampusu. Działa w klubie Future Entrepreneurs of Strixhaven, przekładając swoje wizje na wykonalne inwestycje, a jako korepetytorka i asystentka w Biblioplexie pomaga studentom oraz kataloguje mapy. Jej autorytetem jest profesor Bildra Forheim, z którą wspólnie analizuje strukturę Arithmodrome’u oraz bezpieczne skalowanie magicznych konstrukcji w architekturze. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Nyxia Verdan&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Nyxia.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Nyxia Verdan&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Rasa&lt;/span&gt;: Tiefling
+			&lt;span class=&quot;aktaq&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge cg&quot;&gt; Chaotyczny Dobry&lt;/span&gt;
+			&lt;span class=&quot;aktaq&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Competitive Spell-Flingers Association
+			&lt;span class=&quot;aktaq&quot;&gt;Praca&lt;/span&gt;: Asystentka w laboratorium arkanofizycznym
+			&lt;span class=&quot;aktaq&quot;&gt;Opis&lt;/span&gt;: Nyxia Verdan to diabelstwo o miedzianej karnacji, bursztynowych oczach i masywnych rogach, której długie, kruczoczarne włosy z metalowymi koralikami nieustannie falują w aurze statycznej. Nosi bogato zdobione, szmaragdowo-granatowe szaty kolegium Quandrix oraz oprawiony w skórę grymuar z fraktalami. Traktuje zaklęcia jak kod źródłowy wszechświata, kreśląc w powietrzu lśniące, błękitno-zielone wielościany, którymi rozplątuje cudze czary i nagina lokalne prawa fizyki. Dorastała jako portowa sierota, wykorzystując talent do prawdopodobieństwa, by ogrywać lichwiarzy i rozdawać złoto biedocie. Zrekrutowano ją po tym, jak przypadkiem odwróciła wektor grawitacji w magazynie skorumpowanego poborcy podatkowego. 
+            Jest buntownicza, bezczelnie pewna siebie i kieruje się głębokim poczuciem sprawiedliwości, choć ma alergię na wszelkie autorytety. W wolnym czasie zajmuje się inżynierią wsteczną zaklęć, grami hazardowymi oraz nocną eksploracją zamkniętych skrzydeł kampusu. Należy do Competitive Spell-Flingers Association, traktując pojedynki magiczne jak poligon dla nieautoryzowanych modyfikacji czarów, a jako asystentka w laboratorium arkanofizycznym po cichu podkrada egzotyczną manę. Jej ulubionym profesorem jest Renald Rothton, któremu podrzuca szalone obliczenia abstrakcyjne, wierząc, że dostrzeże w nich ukryte błędy.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
@@ -4250,17 +4471,32 @@ Na kampusie należy do Dead Languages Society oraz Competitive Spell-Flingers As
 &lt;/tr&gt;
 &lt;tr id=&quot;hide&quot; class=&quot;hide house-lore&quot;&gt;
 &lt;td&gt;
-&lt;&lt;link &quot;NN&quot;&gt;&gt;
+&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Bront&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
-            [img[img/char/female.jpg]]
+            [img[img/char/Bront.jpg]]
         &lt;&lt;/replace&gt;&gt;
 		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
-		&lt;h2 class=&quot;naglowek&quot;&gt;NN&lt;/h2&gt;
-            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: 
-			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: 
-			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: 
-			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: 
-			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: 
+		&lt;h2 class=&quot;naglowek&quot;&gt;Bront&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: Żółw
+			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge lg&quot;&gt; Praworządny Dobry&lt;/span&gt;
+			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Silkball Club
+			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: Bront pochodzi z odległego, spowitego mgłą archipelagu, gdzie klany Tortle pełnią funkcję żywych archiwów, ryjąc historie swoich rodów, traktaty oraz przestrogi przodków bezpośrednio na keratynowych grzbietach własnych skorup przed wyruszeniem w trwającą całe życie wędrówkę. Zgodnie z naturą swego ludu nigdy się nie spieszy – podczas gdy młodsi przedstawiciele jego gatunku pędzą, by poznać świat, on zafascynował się wpół zatopionymi świątyniami, zapomnianymi inskrypcjami i cierpliwym ciężarem mijających wieków. W trakcie wieloletnich podróży wzdłuż wybrzeży jego ramiona porósł mech, a on sam zaczął przenosić wyblakłe runiczne napisy na własny pancerz, by ocalić je przed morskimi głębinami. 
+            Do Strixhaven przybył z trzema pokrytymi solnym nalotem torbami pełnymi odbitek z podwodnych ruin, których nikt na jego wyspie nie potrafił odczytać, i natychmiast odnalazł swój dom na wydziale Lorehold, gdzie przekopywanie ziemi w poszukiwaniu choćby jednego czytelnego znaku traktowane jest jak najwyższa sztuka. Na uczelni specjalizuje się w epigrafice oraz konserwacji obiektów kamiennych, a ponieważ jego skorupę zdobią świecące, czerwono-złote runy akademickie, wykładowcy żartobliwie nazywają go „chodzącą tablicą źródłową”. Poza pracą badawczą reprezentuje barwy swojego kolegium na boisku – gdy studenci czwartego roku opuścili drużynę, Hogumak zwerbował go podczas wykopalisk prostą obietnicą, że nie musi biegać, a jedynie stanąć przed bramką i od czasu do czasu przesunąć się w lewo lub w prawo.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;img src= &quot;img\misc\cl2.png&quot;&gt;&lt;&lt;link &quot;Naomi Sandstalker&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Naomi.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Naomi Sandstalker&lt;/h2&gt;
+            &lt;span class=&quot;aktal&quot;&gt;Rasa&lt;/span&gt;: Leonin
+			&lt;span class=&quot;aktal&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge cg&quot;&gt; Chaotyczny Dobry&lt;/span&gt;
+			&lt;span class=&quot;aktal&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Silkball Club
+			&lt;span class=&quot;aktal&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktal&quot;&gt;Opis&lt;/span&gt;: Naomi wywodzi się z koczowniczego stada Leoninów zwanego „Piaskowymi Tropicielami” (Sandstalkers), które patroluje spalone słońcem bezdroża graniczące z antycznym, częściowo zasypanym imperium. W przeciwieństwie do pobratymców gromadzących odnalezione skarby dla siebie, jej ród od pokoleń pełni rolę strażników ruin, ścigając rabusiów grobowców, mapując ruchome tunele w wydmach oraz chroniąc pradawne monolity przed erozją i łowcami artefaktów. Gdy przed kilkoma laty trzęsienie ziemi odsłoniło na ich terytorium podziemną komnatę pełną świecących tablic runicznych i uśpionych machin wojennych, których starszyzna nie potrafiła samodzielnie zabezpieczyć, stado wysłało Naomi do Strixhaven, by opanowała magię pozwalającą odczytywać i chronić antyczne zabytki. 
+            W kolegium Lorehold specjalizuje się w konserwacji reliktów oraz magii wiązania duchów, zdecydowanie przedkładając praktyczne prace wykopaliskowe nad przesiadywanie w zakurzonych salach wykładowych. Stoicka, dumna i niezwykle spostrzegawcza, zawsze mówi wprost, nie znosi przechwałek, a szacunek okazuje wyłącznie poprzez czyny. Jej żelazna dyscyplina i naturalny instynkt obrońcy szybko znalazły zastosowanie również poza murami wydziału – gdy w składzie Lorehold pojawiły się poważne luki, Hogumak obsadził ją na pozycji obrońcy w drużynie, uznając, że jej szybkość i opanowanie pozwolą skutecznie asekurować Bronta oraz stanowić solidny fundament przebudowanego zespołu.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
@@ -4274,17 +4510,45 @@ Na kampusie należy do Dead Languages Society oraz Competitive Spell-Flingers As
 &lt;/tr&gt;
 &lt;tr id=&quot;hide1&quot; class=&quot;hide house-pris&quot;&gt;
 &lt;td&gt;
-&lt;&lt;link &quot;NN&quot;&gt;&gt;
+&lt;&lt;link &quot;Valeria Flint&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
-            [img[img/char/female.jpg]]
+            [img[img/char/Valeria.jpg]]
         &lt;&lt;/replace&gt;&gt;
 		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
-		&lt;h2 class=&quot;naglowek&quot;&gt;NN&lt;/h2&gt;
-            &lt;span class=&quot;aktap&quot;&gt;Rasa&lt;/span&gt;: 
-			&lt;span class=&quot;aktap&quot;&gt;Charakter&lt;/span&gt;: 
-			&lt;span class=&quot;aktap&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: 
-			&lt;span class=&quot;aktap&quot;&gt;Praca&lt;/span&gt;: 
-			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: 
+		&lt;h2 class=&quot;naglowek&quot;&gt;Valeria Flint&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Rasa&lt;/span&gt;: Genasi Ognia
+			&lt;span class=&quot;aktap&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge ln&quot;&gt; Praworządny Neutralny&lt;/span&gt;
+			&lt;span class=&quot;aktap&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Dragonsguard Reserve Officer Training Corp
+			&lt;span class=&quot;aktap&quot;&gt;Praca&lt;/span&gt;: Asystentka ds. Zabezpieczeń Magicznych i Kalibracji Poligonów
+			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: Valeria to bezkompromisowa perfekcjonistka z college’u Prismari, której miedzianą skórę przecinają żarzące się żyłki magmy, bursztynowe oczy jarzą się skupieniem, a kasztanowe włosy przechodzą w zdyscyplinowane płomienie. Wychowana w rodzinie zaklinaczy broni i rzemieślników, postanowiła przełamać stereotypy o wybuchowości Genasi Ognia, traktując żywioł niczym precyzyjną architekturę energii. Jej dopasowany, granatowo-karmazynowy strój wzmacnia samodzielnie zaprojektowany pancerz ze srebra i złota, a jedyną osobistą ozdobą pozostaje gruby złoty łańcuch. Wierzy, że „ogień bez formy to tylko pożar”, i dopiero dyscyplina, właściwy kąt oraz idealna proporcja zmieniają go w sztukę. 
+            Zarówno w walce, jak i podczas musztry w Dragonsguard Reserve Officer Training Corp kreśli w powietrzu symetryczne, złote kręgi runiczne, powtarzając każde ćwiczenie aż do absolutnego mistrzostwa. Poza zgłębianiem kaligrafii runicznej, płatnerstwa magicznego i analizy taktycznej pojedynków dorabia, kalibrując bariery ochronne na uczelnianych poligonach oraz skrupulatnie zgłaszając naruszenia procedur bezpieczeństwa. Choć bywa oschła i zdystansowana, w kryzysowej sytuacji jest niezawodna, a jej największym autorytetem pozostaje dziekan Uvilda Mistcoiler, z którą dzieli przekonanie, że prawdziwa sztuka rodzi się z chłodnego umysłu, nigdy z chaosu.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;Nerissa Tideweaver&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Nerissa.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Nerissa Tideweaver&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Rasa&lt;/span&gt;: Genasi Wody
+			&lt;span class=&quot;aktap&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge cg&quot;&gt; Chaotyczny Dobry&lt;/span&gt;
+			&lt;span class=&quot;aktap&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Water-Dancing Club, Playactors Drama Guild
+			&lt;span class=&quot;aktap&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: Nerissa to pełna gracji genasi wody z kolegium Prismari, o skórze barwy morskiej toni, falujących, turkusowych włosach, spiczastych uszach z muszelkowymi kolczykami i błyszczących oczach. Nosi zdobione srebrem, szkarłatno-kobaltowe szaty, trzyma kryształową różdżkę, a wokół jej dłoni wirują woda i ogień. Rzucanie zaklęć traktuje jak taneczną choreografię, wyznając zasadę: „Po co zamykać magię w nudnych formułach, skoro można z niej utkać spektakl, od którego wszystkim zaprze dech w piersiach? Patrzcie i podziwiajcie!” Załamuje światło w lewitującym pryzmacie, zamieniając nawet proste sztuczki w deszcz iskier, pary i błysków przy akompaniamencie radosnego śmiechu. Dorastając w mieście portowym, zabawiała marynarzy wodno-ognistymi pokazami, co otworzyło jej drzwi do Strixhaven, gdzie zamienia przerwy w festiwale, doprowadzając golemy porządkowe do szału. 
+            Żyje dla braw i emocji widowni – jest optymistyczna, spontaniczna i ma złote serce, łamiąc sztywne reguły, by dawać radość i bronić słabszych. Uwielbia akrobatykę, projektowanie połyskujących kostiumów, kolekcjonowanie kryształów oraz nocne pokazy nad wodą. Pełne zaangażowanie w Intramural Water-Dancing Club i Playactors Drama Guild nie zostawia jej czasu na pracę, a jej największą idolką pozostaje dziekan Nassari, której żywiołową filozofię sztuki z serca w pełni podziela.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;img src= &quot;img\misc\cp2.png&quot;&gt;&lt;&lt;link &quot;Zakhar&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Zakhar.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Zakhar&lt;/h2&gt;
+            &lt;span class=&quot;aktap&quot;&gt;Rasa&lt;/span&gt;: Genasi Powietrza
+			&lt;span class=&quot;aktap&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge tn&quot;&gt; Neutralny&lt;/span&gt;
+			&lt;span class=&quot;aktap&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Silkball Club
+			&lt;span class=&quot;aktap&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktap&quot;&gt;Opis&lt;/span&gt;: Niewiele dowiesz się od Zakhara na temat jego przeszłości. Zawsze odpowiada wymijająco i ogólnikami. Ale jest zaskakująco pewny siebie, ten tajemniczy mężczyzna wydaje się wiedzieć co  chce. Pewnym krokiem ruszył  w kierunku Prismari aby  się tam zapisać i przy okazji zasilić ich drużynę sportową. Interesują go Iluzje, i chce wykorzystać magię żywiołów aby manipulować wizją. Dla niego otoczenie to sceneria, którą można przekształcać aby zmienić percepcję przeciwnika. Natomiast przy  naborach do drużyny piłki jedwabnej zdeklasował kompletnie konkurencję. Szybki, zwinny ale i też przebiegły i miejscami bezczelny. Żeby tego było mało, upodobał sobie dokuczanie Nur.  Pozwala sobie na spoufalanie tak jakby ją kiedyś znał,  ona natomiast zarzeka się, że nigdy wcześniej go na oczy nie widziała i drażni ją wielce jego zachowanie. 
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
@@ -4312,6 +4576,22 @@ Na kampusie należy do Dead Languages Society oraz Competitive Spell-Flingers As
 Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekcjonista bywa podatny na nadmierną analizę oraz zaniedbywanie własnych potrzeb. Na kampusie udziela się w Dragonsguard Historical Society oraz Dragonchess Club, a jego akademickim autorytetem jest profesor Ruxa, ceniony przez Samuela za nacisk na głębokie zrozumienie fundamentów magii. W wolnym czasie bada magimatykę, starożytne cywilizacje i teoretyzuje na temat podróży międzyplanarnych, spędzając długie godziny w Biblioplexie. W Strixhaven uchodzi za wybitnego młodego teoretyka, który zawsze szuka szerszego rozwiązania: „Każda tajemnica ma rozwiązanie. Pytanie brzmi tylko, czy jesteśmy gotowi je poznać”. 
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
+&lt;img src= &quot;img\misc\cq2.png&quot;&gt;&lt;&lt;link &quot;Niya Shadetalon&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Niya.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Niya Shadetalon&lt;/h2&gt;
+            &lt;span class=&quot;aktaq&quot;&gt;Rasa&lt;/span&gt;: Owlin
+			&lt;span class=&quot;aktaq&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge ng&quot;&gt; Neutralny Dobry&lt;/span&gt;
+			&lt;span class=&quot;aktaq&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Silkball Club
+			&lt;span class=&quot;aktaq&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktaq&quot;&gt;Opis&lt;/span&gt;: Niya pochodzi ze  Skał Astrolabe – wysokogórskiego klasztoru smaganego wiatrami, w którym uczeni sporządzają mapy układów ciał niebieskich oraz prądów atmosferycznych. Dorastanie w warunkach zdradliwych, krzyżujących się podmuchów wiatru nauczyło ją, że latanie nie jest kwestią instynktu, lecz czystą fizyką stosowaną. Jej pióra mają na sobie białe kropki, przywodzące na myśl gwiazdy na niebie.
+            Wstąpiła do uczelni Quandrix, aby zgłębić tajniki geometrii przestrzennej i magii trajektorii – a konkretnie: jak zakrzywiać wektory grawitacyjne i obliczać kąty rykoszetów w przestrzeni trójwymiarowej.
+            Czasami jednak uczęszcza również na wykłady w Silverquill, poświęcone retoryce i psychologii pola walki. Choć w przewidywaniu toru lotu piłki polega na obliczeniach z zakresu Quandrix, techniki Silverquill – takie jak naśladowanie dźwięków (na przykład świstu nadlatującego zaklęcia czy głosu przeciwnego kapitana) – wykorzystuje do wprowadzania w błąd rywali, zmuszając ich do zerwania szyku.
+            W drużynie sportowej pełni funkcję powietrznego łącznika oraz zawodniczki neutralizującej przeciwników w powietrzu. Zamiast siłować się z potężnymi obrońcami, wykorzystuje umiejętność bezgłośnego lotu,  by znikać w górnych partiach konstrukcji stadionu. Stamtąd wykonuje gwałtowne ataki z powietrza pod matematycznie optymalnymi kątami, przechwytując podania adresowane do zawodników drużyny przeciwnej. 
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -4323,17 +4603,18 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
 &lt;/tr&gt;
 &lt;tr id=&quot;hide3&quot; class=&quot;hide house-silv&quot;&gt;
 &lt;td&gt;
-&lt;&lt;link &quot;NN&quot;&gt;&gt;
+&lt;img src= &quot;img\misc\cs2.png&quot;&gt;&lt;&lt;link &quot;Nimra Duskwisp&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
-            [img[img/char/female.jpg]]
+            [img[img/char/Nimra.jpg]]
         &lt;&lt;/replace&gt;&gt;
 		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
-		&lt;h2 class=&quot;naglowek&quot;&gt;NN&lt;/h2&gt;
-            &lt;span class=&quot;aktas&quot;&gt;Rasa&lt;/span&gt;: 
-			&lt;span class=&quot;aktas&quot;&gt;Charakter&lt;/span&gt;: 
-			&lt;span class=&quot;aktas&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: 
-			&lt;span class=&quot;aktas&quot;&gt;Praca&lt;/span&gt;: 
-			&lt;span class=&quot;aktas&quot;&gt;Opis&lt;/span&gt;: 
+		&lt;h2 class=&quot;naglowek&quot;&gt;Nimra Duskwisp &lt;/h2&gt;
+            &lt;span class=&quot;aktas&quot;&gt;Rasa&lt;/span&gt;: Changeling 
+			&lt;span class=&quot;aktas&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge tn&quot;&gt; Neutralny&lt;/span&gt;
+			&lt;span class=&quot;aktas&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: Intramural Silkball Club
+			&lt;span class=&quot;aktas&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktas&quot;&gt;Opis&lt;/span&gt;: Zanim Nimra trafiła do Strixhaven, nie miała własnego domu – dysponowała za to całą garderobą różnych żyć, dorastając w rozległych dzielnicach teatralnych i salonach dyplomatycznych wielkiego metropolitalnego centrum handlowego pod okiem „Niespisanych”, gildii pośredników informacji oraz iluzjonistów scenicznych. Zamiast walki od dziecka wpajano jej sztukę bezbłędnej obserwacji, ucząc rozpoznawać mikrogesty zdradzające kłamstwo arystokraty, przeniesienie ciężaru ciała poprzedzające atak strażnika oraz siłę jednej precyzyjnie rzuconej plotki, zdolnej obalić ród kupiecki szybciej niż machina oblężnicza. Gdy zrozumiała, że podczas ryzykownego zlecenia szpiegowskiego wrobiono ją w rolę kozła ofiarnego, zerwała z kontraktem, przybrała zupełnie nową tożsamość i schroniła się w murach Strixhaven – jednym z niewielu miejsc chronionych przez ścisłą neutralność i bariery międzyplanarne, dokąd nie sięgają wpływy dawnych rywali. 
+            Zapisała się do kolegium Silverquill, traktując je nie jak szkołę literatury, lecz laboratorium wojny społecznej, w którym łączy naturalną fizjologię zmiennokształtnej z magią cieni, iluzji i zauroczenia, by nauczyć się modyfikować nie tylko własną twarz, ale także aurę, głos oraz podświadome oczekiwania rozmówców, a przy okazji zbierać haki na przyszłych wpływowych magów. Swoją obecność w drużynie piłki jedwabnej traktuje niczym kolejny kostium sceniczny, podczas meczów nieustannie wprowadzając drobne, dezorientujące modyfikacje – od wydłużania włosów przesłaniających widok obrońcom i dopasowywania koloru oczu do świateł stadionu, po chwilowe przybieranie sylwetki rywali, by wywołać u nich ułamek sekundy zawahania w kluczowym momencie podania.
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
@@ -4347,17 +4628,36 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
 &lt;/tr&gt;
 &lt;tr id=&quot;hide4&quot; class=&quot;hide house-with&quot;&gt;
 &lt;td&gt;
-&lt;&lt;link &quot;NN&quot;&gt;&gt;
+&lt;img src= &quot;img\misc\cw2.png&quot;&gt;&lt;&lt;link &quot;Goro Blackhorn&quot;&gt;&gt;
         &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
-            [img[img/char/female.jpg]]
+            [img[img/char/Goro.jpg]]
         &lt;&lt;/replace&gt;&gt;
 		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
-		&lt;h2 class=&quot;naglowek&quot;&gt;NN&lt;/h2&gt;
-            &lt;span class=&quot;aktaw&quot;&gt;Rasa&lt;/span&gt;: 
-			&lt;span class=&quot;aktaw&quot;&gt;Charakter&lt;/span&gt;: 
-			&lt;span class=&quot;aktaw&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;: 
-			&lt;span class=&quot;aktaw&quot;&gt;Praca&lt;/span&gt;: 
-			&lt;span class=&quot;aktaw&quot;&gt;Opis&lt;/span&gt;: 
+		&lt;h2 class=&quot;naglowek&quot;&gt;Goro Blackhorn &lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Rasa&lt;/span&gt;: Minotaur
+			&lt;span class=&quot;aktaw&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge tn&quot;&gt; Neutralny&lt;/span&gt;
+			&lt;span class=&quot;aktaw&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;:  Intramural Silkball Club
+			&lt;span class=&quot;aktaw&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktaw&quot;&gt;Opis&lt;/span&gt;: Goro urodził się głęboko w systemie podziemnych jaskiń, połączonych z Podmrokiem – miejscem, w którym mech świeci nekrotyczną energią, a skały są czarne jak smoła. Dorastał, przemierzając kręte, całkowicie pogrążone w mroku labirynty, dzięki czemu wykształcił zmysł wyczuwania drgań oraz niezwykłą orientację przestrzenną. 
+            To potężny, imponujący posturą minotaur – mierzy blisko 215 centymetrów wzrostu, a jego szerokie barki sprawiają, że przy nim każdy inny zawodnik na boisku wydaje się drobny. Jego skóra nie jest po prostu ciemnobrązowa; ma głęboki, pochłaniający światło odcień czerni, przypominający polerowany obsydian. Jego ogromne, zakrzywione rogi zostały zaostrzone niczym igły i ozdobione brązowymi obręczami. 
+            Nie przybył tu, by ślęczeć nad księgami. Pojawił się, ponieważ starszyzna jego plemienia  wyczuła na powierzchni świata zachwianie równowagi, które zagrażało ekosystemom w jego podziemnym domu. Goro został wysłany jako emisariusz, by zgłębić tajniki „odnawiającego rozkładu” oraz botanicznego wzmacniania otoczenia – nauczył się wykorzystywać naturalny cykl życia i śmierci, aby chronić swoje podziemne królestwo. 
+            Dla niego gra w piłkę jedwabną to ciekawa odmiana od walki w tunelach. Tutaj nie ma walki w zamkniętych przestrzeniach, co nie zmienia faktu, że i tak będzie innym ciężko od uniknięcia  konfrontacji z nim.
+        &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/link&gt;&gt;
+&lt;img src= &quot;img\misc\cw2.png&quot;&gt;&lt;&lt;link &quot;Zorya&quot;&gt;&gt;
+        &lt;&lt;replace &quot;.portret&quot;&gt;&gt;
+            [img[img/char/Zorya.jpg]]
+        &lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &quot;.opis&quot;&gt;&gt;
+		&lt;h2 class=&quot;naglowek&quot;&gt;Zorya&lt;/h2&gt;
+            &lt;span class=&quot;aktaw&quot;&gt;Rasa&lt;/span&gt;: Githzerai
+			&lt;span class=&quot;aktaw&quot;&gt;Charakter&lt;/span&gt;: &lt;span class=&quot;align-badge le&quot;&gt; Praworządny Zły&lt;/span&gt;
+			&lt;span class=&quot;aktaw&quot;&gt;[[Klub(y)|Extracurriculars]]&lt;/span&gt;:  Intramural Silkball Club
+			&lt;span class=&quot;aktaw&quot;&gt;Praca&lt;/span&gt;: brak
+			&lt;span class=&quot;aktaw&quot;&gt;Opis&lt;/span&gt;: Urodzona w klasztorze w Limbo – miejscu, w którym sama rzeczywistość musiała być utrzymywana w całości dzięki ogromnej dyscyplinie umysłowej – Zorya znużyła się sterylnym, niezmiennym kamieniem oraz czystą abstrakcją. Pragnęła zgłębiać żywy chaos: ekosystemy, w których wzrost, rozkład i mutacje ścierają się ze sobą, niepodległe żadnemu sztywnemu porządkowi.
+            Zorya wstąpiła do Witherbloom, by studiować botanikę psioniczną oraz symbiotyczne aberracje – a konkretnie to, w jaki sposób energia neuronalna oddziałuje na florę bagienną, sieci grzybni i zmutowane organizmy (właśnie w ten sposób, podczas wyprawy na mokradła, nawiązała więź ze swoim chowańcem – miniaturowym spektatorem).
+            Dla przedstawicielki rasy Githzerai walka fizyczna i sport stanowią formę medytacji w ruchu. Piłka jedwabna pozwala jej sprawdzać swoją świadomość przestrzenną oraz psioniczny refleks w starciach z siłaczami polegającymi na brutalnej sile czy też omijaniem pułapek.
+            W przerwach między akcjami ona oraz jej lewitujący spektator wpatrują się w przeciwników – nieruchomym, zsynchronizowanym spojrzeniem, które wprawia w zakłopotanie mniej doświadczonych graczy, jeszcze zanim rozbrzmi gwizdek sędziego. 
         &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/link&gt;&gt;
 &lt;/td&gt;
@@ -5250,7 +5550,7 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Obrońca&lt;/td&gt;
-    &lt;td&gt;Toltec&lt;/td&gt;
+    &lt;td class=&quot;icon&quot;&gt;Toltec&lt;/td&gt;
 	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$currentYear&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
     &lt;tr&gt;
@@ -5265,17 +5565,18 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td&gt;Kralred Hihazar&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Zorya&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td class=&quot;icon&quot;&gt;Zselsha&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Goro Blackhorn&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;obraz&quot;&gt;
+&lt;img src=&quot;img/misc/Witherbloom.jpg&quot;&gt;
 &lt;img src=&quot;img/misc/Witherbloom.png&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5298,7 +5599,7 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Bramkarz&lt;/td&gt;
-    &lt;td&gt;Galinmeral&lt;/td&gt;
+    &lt;td class=&quot;icon&quot;&gt;Galinmeral&lt;/td&gt;
 	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$currentYear&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -5323,8 +5624,8 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td class=&quot;icon&quot;&gt;Nixie Icefallen&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Nimra Duskwisp&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 &lt;/div&gt;
@@ -5351,8 +5652,8 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Bramkarz&lt;/td&gt;
-    &lt;td&gt;Olaxina Yelaphol&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Ambroze Ruhn&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$twoYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Obrońca&lt;/td&gt;
@@ -5361,8 +5662,8 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
     &lt;tr&gt;
     &lt;td&gt;Obrońca&lt;/td&gt;
-    &lt;td&gt;Ambroze Ruhn&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$twoYearMinus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Niya Shadetalon&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Pomocnik&lt;/td&gt;
@@ -5382,6 +5683,7 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;obraz&quot;&gt;
+&lt;img src=&quot;img/misc/Quandrix.jpg&quot;&gt;
 &lt;img src=&quot;img/misc/Quandrix.png&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5431,12 +5733,12 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td class=&quot;icon&quot;&gt;Kilgor Wildclaw&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Zakhar&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td&gt;Shagul Shatang&lt;/td&gt;
+    &lt;td class=&quot;icon&quot;&gt;Shagul Shatang&lt;/td&gt;
 	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$currentYear&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -5464,18 +5766,18 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Bramkarz&lt;/td&gt;
-    &lt;td&gt;Morrigan Brennan&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearMinus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Bront&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Obrońca&lt;/td&gt;
-    &lt;td&gt;Javenesh Stoutclaw&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Naomi Sandstalker&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$threeYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
     &lt;tr&gt;
     &lt;td&gt;Obrońca&lt;/td&gt;
-    &lt;td&gt;Branmora Graellart&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Morrigan Brennan&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Pomocnik&lt;/td&gt;
@@ -5484,17 +5786,18 @@ Jest wysoce inteligentny, dociekliwy, empatyczny i cierpliwy, choć jako perfekc
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td class=&quot;icon&quot;&gt;Mirraduk Orchoof&lt;/td&gt;
-	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearPlus&lt;/div&gt;&lt;/td&gt;
+    &lt;td&gt;Cassian Dale&lt;/td&gt;
+	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$oneYearMinus&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Napastnik&lt;/td&gt;
-    &lt;td&gt;Hogumak&lt;/td&gt;
+    &lt;td class=&quot;icon&quot;&gt;Hogumak&lt;/td&gt;
 	&lt;td&gt;&lt;div class=&quot;rok-medalion&quot;&gt;$currentYear&lt;/div&gt;&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;obraz&quot;&gt;
+&lt;img src=&quot;img/misc/Lorehold.jpg&quot;&gt;
 &lt;img src=&quot;img/misc/Lorehold.png&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
